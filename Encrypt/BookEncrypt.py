@@ -12,7 +12,7 @@ num_of_words = len(book_words_list)  # 33
 ABC = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 
-def create_table(words: list):
+def create_table(words: list) -> dict:
     """
     Creates a dictionary of numbers as keys and letters as values for every first letter from each word in the list of
     words from the page book; each number represent the location of the word in the words list.
@@ -29,7 +29,7 @@ def create_table(words: list):
     return encrypt_table
 
 
-def check_abc(table: dict):
+def check_abc(table: dict) -> list:
     """
     Checks which letters from the ABC appear.
     :param table: Dictionary of numbers and values created
@@ -42,7 +42,7 @@ def check_abc(table: dict):
     return sorted(set(ltrs))
 
 
-def not_in_abc(page_ltrs: list):
+def not_in_abc(page_ltrs: list) -> list:
     """
     Checks which letters from the ABC doesn't appear.
     :param page_ltrs: List of letters extracted from the book page.
@@ -69,7 +69,7 @@ def get_key(val: str, key_dict: dict):
     return 0
 
 
-def encrypt_msg(msg: str, key_table: dict):
+def encrypt_msg(msg: str, key_table: dict) -> str:
     """
     Encrypts a message by substituting the letters as numbers from the key table.
     :param msg: Str; the message to be encrypted.
@@ -95,7 +95,7 @@ def encrypt_msg(msg: str, key_table: dict):
     return coded_msg
 
 
-def write_msg_to_file(file_name: str, msg: str):
+def write_msg_to_file(file_name: str, msg: str) -> None:
     with open(file_name, 'a') as cf:  # cf = cipher file; opened as append so former ciphers won't delete.
         cf.write(msg)
         cf.write("\n")
@@ -112,7 +112,7 @@ def main():
     ciphered_message = encrypt_msg(msg, key_table)
     print(ciphered_message)
     file_name = "../Text Riddles/Riddle 1"
-    write_msg_to_file(file_name=file_name,msg=ciphered_message)
+    write_msg_to_file(file_name=file_name, msg=ciphered_message)
 
 
 if __name__ == '__main__':

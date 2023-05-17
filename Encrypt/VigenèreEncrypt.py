@@ -7,7 +7,7 @@ def shift_table(ab: str):  # Language option? need to get ASCII values changes a
     for i in range(ab_size+1):  # zero represent the complete ABC, with no shifts.
         shifted_seq = ""
         for ltr in ab:
-            ltr_ord: int= ord(ltr)
+            ltr_ord: int = ord(ltr)
             ltr_shifted: int = (ltr_ord + i)
             if ltr_shifted > 90:  # If the ASCII value exceeds 'Z' == 90.
                 ltr_shifted = ltr_shifted - 26  # Runs back to the start of the ABC ASCII table; the difference of Z&A.
@@ -160,7 +160,7 @@ def print_table(msg: str, keyword: str):
         print()  # Prints newline for format wise.
 
 
-def test():
+def mod_test():
     vig_keyword = "King"
     plain_text = "The Sun and the Man in the Moon"
     print_table(msg=plain_text, keyword=vig_keyword)
@@ -169,5 +169,14 @@ def test():
     print(encrypt(msg=plain_text, keyword=vig_keyword))
 
 
+def almog_text():
+    vig_keyword = "Barak"
+    plain_text = "Waiting for you in NYC you always have a vacant couch in my apartment"
+    print_table(msg=plain_text, keyword=vig_keyword)
+    print(get_rows(keyword=vig_keyword))
+    print(get_columns(plain_txt=plain_text))
+    print(encrypt(msg=plain_text, keyword=vig_keyword))
+
+
 if __name__ == '__main__':
-    test()
+    almog_text()
